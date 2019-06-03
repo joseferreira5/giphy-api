@@ -1,7 +1,6 @@
 $(document).ready(function () {
-    console.log("ready!");
 
-    var topics = ['baseball', 'home run', 'bat flip', 'strikeout', 'cat'];
+    var topics = ['baseball', 'home run', 'bat flip', 'strikeout', 'yankees'];
 
     function renderButton(topic) {
         var topicBtn = $("<button>");
@@ -30,12 +29,12 @@ $(document).ready(function () {
             var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
-                var gifDiv = $("<div>");
+                var gifDiv = $("<div class='d-inline-block m-2'>");
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 var gifImage = $("<img>");
 
-                gifImage.attr("src", results[i].images.fixed_height.url);
+                gifImage.attr("src", results[i].images.fixed_height_small_still.url);
                 gifDiv.prepend(p);
                 gifDiv.prepend(gifImage);
 
